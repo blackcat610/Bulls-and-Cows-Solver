@@ -185,8 +185,8 @@ def interactive_game():
             # START NEW GAME
             print 'Game Finished! Answer: %d, Question Count: %d'%(q, count)
             print ''
-            print 'Start New Game!'
-            print ''
+            print 'Press Enter to New Game!'
+            raw_input()
             pool = ALL_NUMBERS
             history.clear()
             count = 0
@@ -204,7 +204,7 @@ def interactive_game():
             q /= 10
 
 if __name__ == "__main__":
-    print """'Bulls and Cows' Solver
+    print u"""'Bulls and Cows' Solver
 Author: blackcat (메이플스토리 아케인서버 뉴메타소프트)
 Date: 2017. 10. 15
 """
