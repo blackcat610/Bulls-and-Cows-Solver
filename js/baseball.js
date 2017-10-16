@@ -237,6 +237,7 @@ function execute()
             return;
         }
 
+        var backups = [];
         for (var i = 0; i < game_pool.length; i++)
         {
             var result = calc_s_and_b(q_input, game_pool[i]);
@@ -244,11 +245,17 @@ function execute()
             var b = result[1];
             if (s_input != s || b_input != b)
             {
-                game_pool.splice(i, 1);
+                backups[backups.length] = game_pool.splice(i, 1)[0];
                 i--;
             }
         }
 
+        if( game_pool.length == 0)
+        {
+            alert("Now allowed number input.");
+            game_pool = backups;
+            return;
+        }
         mainForm.input_Q.value = "";
         mainForm.input_S.value = "";
         mainForm.input_B.value = "";
