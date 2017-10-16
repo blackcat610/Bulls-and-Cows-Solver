@@ -111,11 +111,36 @@ function execute()
             }
         }
 
-        var option_Log = new Option();
-        mainForm.lst_Log.options.add(option_Log);
         mainForm.input_Q.value = "";
         mainForm.input_S.value = "";
         mainForm.input_B.value = "";
+
+        var result;
+        if (s_input == 0 && b_input == 0)
+        {
+            result = "X";
+        }
+        else if (b_input == 0)
+        {
+            result = s_input + "S";
+        }
+        else if (s_input == 0)
+        {
+            result = b_input + "B";
+        }
+        else
+        {
+            result = s_input + "S" + b_input + "B";
+        }
+
+        var history = new Option();
+        history.text = q_input + " - " + result;
+        mainForm.history.options.add(history);
+        for (var i = 0; i < CONFIG_NUM_DIGIT; i++)
+        {
+            game_used.add(q_input % 10);
+            q_input /= 10;
+        }
     }
     catch(e)
     {
