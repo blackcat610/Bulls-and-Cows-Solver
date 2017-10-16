@@ -233,7 +233,7 @@ function execute()
 
         if (is_allowed_number(q_input) == false)
         {
-            alert("Now allowed number input.");
+            alert("Not allowed number input.");
             return;
         }
 
@@ -255,7 +255,7 @@ function execute()
             game_pool = backups;
             mainForm.input_S.value = "";
             mainForm.input_B.value = "";
-            alert("Now allowed number input.");
+            alert("Not allowed number input.");
             return;
         }
         mainForm.input_Q.value = "";
