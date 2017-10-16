@@ -205,7 +205,7 @@ def interactive_game():
 
 if __name__ == "__main__":
     print u"""'Bulls and Cows' Solver
-Author: blackcat (메이플스토리 아케인서버 뉴메타소프트)
+Author: blackcat610@github.com (메이플스토리 아케인서버 뉴메타소프트)
 Date: 2017. 10. 15
 """
     if CONFIG_MODE == TYPE_MODE_TEST:
