@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script type="text/javascript" src="baseball.js"></script>
+        <meta charset="utf-8">
+        <title>Bulls and Cows Solver</title>
+    </head>
+    <form name="form" id="mainForm">
+        <body>
+            <div id="container" style="width:100%">
+                <div id="header">
+                    <h1>Bulls and Cows Solver</h1>
+                </div>
+                </br>
+                <div id="menu" style="height:162px; width:70%; float:left;">
+                    <label for="html">Input</label> 
+                    <input type="Text" id="input_Q" size=10 maxlength="3">
+                    <input type="button" id="btn_execute" value="Add" onclick="execute()">
+                    <br>
+                    <input type="Text" id = "input_S" size=1 maxlength="1">
+                    <label for="html">Strike</label> 
+                    <input type="Text" id = "input_B" size=1  maxlength="1">
+                    <label for="html">Ball</label> 
+                    <input type="button" id="btn_Reset" value="Clear" onclick="reset()">
+                    <br>
+                    <br>
+                </div>
+                <div id="pool" style="width:30%; height:162px;">
+                    <select id="pool_list" size="10" style="width:100px; height:162px;">
+                    </select>
+                </div>
+                <div id="footer" style="width:350px;">
+                    <textarea id="txt_result" style="width:100%; height:150px;"></textarea>
+                </div>
+            </div>
+        </body>
+    </form>
+</html>
