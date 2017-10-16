@@ -252,8 +252,10 @@ function execute()
 
         if( game_pool.length == 0)
         {
-            alert("Now allowed number input.");
             game_pool = backups;
+            mainForm.input_S.value = "";
+            mainForm.input_B.value = "";
+            alert("Now allowed number input.");
             return;
         }
         mainForm.input_Q.value = "";
