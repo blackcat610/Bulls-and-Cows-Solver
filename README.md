@@ -1,7 +1,8 @@
 # Bulls-and-Cows-Solver
 ## Word
-#### This game is aka 'baseball game' in Korea
+#### This game was known as "Baseball game" in Korea
 #### So word changed "Bulls" => "Strikes", "Cows" => "Balls"
+
 ## Rule differents
 #### The game play with 3 digits.
 #### The digits uses on [1, 2, 3, 4, 5, 6, 7, 8, 9]
