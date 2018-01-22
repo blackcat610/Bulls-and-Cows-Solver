@@ -27,6 +27,21 @@ def is_allowed_number(number):
 SET_POOL = set(CONFIG_POOL)
 ALL_NUMBERS = [number for number in range(10 ** (CONFIG_NUM_DIGIT - 1), 10 ** CONFIG_NUM_DIGIT) if is_allowed_number(number)]
 
+TEST_ACCELERATION_INDEX = {}
+def get_to_index(SB_history):
+    a = TEST_ACCELERATION_INDEX
+    for key in SB_history:
+        if key not in a:
+            return None
+        a = a[key]
+    return a['Q']
+
+def set_to_index(SB_history, new_question):
+    a = TEST_ACCELERATION_INDEX
+    for key in SB_history[:-1]:
+        a = a[key]
+    a[SB_history[-1]] = {'Q': new_question}
+
 def calc_s_and_b(q, a):
     _q = str(q)
     _a = str(a)
@@ -150,22 +165,36 @@ def calc_best_question(a_pool, history):
 def test_all_numbers():
     answers = ALL_NUMBERS
     all_count = 0
+    finish_count = 0
+    len_answers = len(ALL_NUMBERS)
     analyze = {}
     now = time.time()
+    TEST_ACCELERATION_INDEX = {}
     for answer in answers:
         pool = ALL_NUMBERS
         history = set()
+        SB_history = ['FIRST']
         count = 0
         while True:
             count += 1
             all_count += 1
-            q, is_finished = calc_best_question(pool, history)
+            q = get_to_index(SB_history)
+            if q is None:
+                q, _ = calc_best_question(pool, history)
+                set_to_index(SB_history, q)
+
             s, b = calc_s_and_b(q, answer)
             if s == CONFIG_NUM_DIGIT:
                 if count not in analyze:
                     analyze[count] = 0
                 analyze[count] += 1
+                finish_count += 1
+                if finish_count % 50 == 0:
+                    print '%d/%d Finish'%(finish_count, len_answers)
                 break
+
+            SB_history.append('%dS%dB'%(s, b))
+
             pool = update_pool(q, s, b, pool)
             for i in range(CONFIG_NUM_DIGIT):
                 history.add(q % 10)
