@@ -19,7 +19,7 @@
 ###### Win Statistics: [1 Try Win: 1], [2 Try Win: 4], [3 Try Win: 59], [4 Try Win: 544], [5 Try Win: 2320], [6 Try Win: 1568], [7 Try Win: 40]
 
 ## Word
-#### This game was known as "Baseball game" in Korea
+#### This game is known as "Baseball game" in Korea
 #### So word changed "Bulls" => "Strikes", "Cows" => "Balls"
 
 ## Default Rule
