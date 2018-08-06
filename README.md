@@ -24,7 +24,7 @@
 
 ## Default Rule
 #### The game play with 3 digits and digits uses on [1, 2, 3, 4, 5, 6, 7, 8, 9]
-#### THIS RULES CAN BE EDIT. using the CONFIG variables.
+#### This rule is editable. using the CONFIG variables.
 
 ## Python codes
 #### This python code works in Python 2.7
