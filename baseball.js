@@ -1,5 +1,27 @@
-var CONFIG_POOL = new Set([1,2,3,4,5,6,7,8,9]);
-var CONFIG_NUM_DIGIT = 3;
+let CONFIG_POOL = new Set([1,2,3,4,5,6,7,8,9]);
+let CONFIG_POOL_0 = new Set([1,2,3,4,5,6,7,8,9,0]);
+let CONFIG_POOL_9 = new Set([1,2,3,4,5,6,7,8,9]);
+let CONFIG_NUM_DIGIT = 3;
+
+function change_include_0() {
+    const v = document.getElementById('option_include_0').checked;
+    if (v) {
+        CONFIG_POOL = CONFIG_POOL_0;
+    } else {
+        CONFIG_POOL = CONFIG_POOL_9;
+    }
+    reset_game();
+}
+
+function change_4_digit() {
+    const v = document.getElementById('option_4_digit').checked;
+    if (v) {
+        CONFIG_NUM_DIGIT = 4;
+    } else {
+        CONFIG_NUM_DIGIT = 3;
+    }
+    reset_game();
+}
 
 function is_allowed_number(number)
 {
@@ -46,14 +68,15 @@ var game_all_pool = get_pool();
 var game_history = new Array();
 var game_used = new Set();
 
-var potential = new Array();
-for (var i = 0; i <= CONFIG_NUM_DIGIT; i++)
-{
-    for (var j = 0; j <= CONFIG_NUM_DIGIT; j++)
-    {
-        if(i + j <= 3)
-        {
-            potential[potential.length] = [i, j];
+var potential = [];
+
+function init_potential() {
+    potential = [];
+    for (var i = 0; i <= CONFIG_NUM_DIGIT; i++) {
+        for (var j = 0; j <= CONFIG_NUM_DIGIT; j++) {
+            if(i + j <= CONFIG_NUM_DIGIT) {
+                potential.push([i, j]);
+            }
         }
     }
 }
@@ -293,8 +316,10 @@ function reset_game()
     mainForm.input_B.value = "";
     mainForm.history.options.length = 0;
     mainForm.txt_answer.value = "";
-    game_pool = get_pool();
+    game_all_pool = get_pool();
+    game_pool = game_all_pool.slice();
     game_used = new Set();
+    init_potential();
     calc_best_question();
 }
 
